@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 30px;
+            height: 30px;
+            background-color: blue;
+            animation-name: change;
+            animation-duration: 4s;
+            animation-delay: 1s;
+            /*动画结束后保持当前状态*/
+            animation-fill-mode: forwards;
+            /*动画播放次数*/
+            /*animation-iteration-count: infinite;*/
+            /*多次播放时，回到初始状态也有动画效果*/
+            animation-direction: alternate;
+            /*动画速度曲线*/
+            animation-timing-function: linear;
+        }
+
+        @keyframes change {
+            0% {width: 100px; height: 100px;} /*hkhk*/
+
+            25% {width: 100px;
+                height: 300px;
+                background-color: pink;
+            }
+
+            50% {
+                width: 300px;
+                height: 300px;
+                background-color: green;
+            }
+
+
+
+            100% {
+                /*width: 300px;*/
+                /*height: 300px;*/
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

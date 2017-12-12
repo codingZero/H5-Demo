@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            margin: 100px;
+        }
+
+        span {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<span id="box"></span>
+    <div id="text">撒娇的发来撒解放路撒发来的设计费地方拉丝机冷风机电缆附件路附近的到拉萨婕拉设计费垃圾分类束带结发拉萨积分垃圾分类捡垃圾傅雷家书电缆附件发垃圾分类及是否了解浪费时间噢文件佛按实际发哦送奥积分哦啊见佛按时交付热哦啊了纪律哦啊司法局家佛圣诞节佛山绿哈佛</div>
+
+</body>
+</html>
+
+<script>
+    var text = document.getElementById('text');
+    var box = document.getElementById('box');
+    text.onmouseup = function (event) {
+        var txt = window.getSelection().toString();
+//        var txt = document.selection.createRange().text;
+        console.log(txt);
+
+        if (txt) {
+            setTimeout(function () {
+                box.innerHTML = txt;
+                box.style.display = "block";
+                box.style.left = event.clientX + "px";
+                box.style.top = event.clientY + "px";
+            }, 100);
+        }
+    }
+
+    document.onmousedown = function (event) {
+        if (event.target.id != "box") {
+            box.style.display = "none";
+        }
+
+    }
+</script>

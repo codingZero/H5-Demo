@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .test {
+            background-color: #cacaca;
+            height: 100px;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        .content {
+            border: 5px dashed #cccccc;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 40px;
+            color: gray;
+        }
+
+        .actived {
+            background-color: #eaeaea;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        h5, p {
+            margin: 0;
+            padding: 5px;
+        }
+
+        li {
+            border: 1px solid gray;
+            margin-top: -1px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="test">
+        <p>这是一段用来测试的文字，并没有什么卵用，看看就好</p>
+        <img src="images/Top.jpg" alt="">
+    </div>
+    <ul id="file_list"></ul>
+    <div id="drag" class="content">
+        Drag something to here
+    </div>
+</body>
+<script>
+    (function () {
+        var drag = document.getElementById('drag');
+        var fileList = document.getElementById('file_list');
+        drag.addEventListener('dragenter', function () {
+            drag.classList.add('actived');
+        });
+
+        drag.addEventListener('dragleave', function () {
+            drag.classList.remove('actived');
+        });
+
+        drag.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        drag.addEventListener('drop', function (e) {
+            drag.classList.remove('actived');
+            if (e.dataTransfer.getData('text/plain')) {
+                drag.innerHTML = e.dataTransfer.getData('text/plain');
+            } else if (e.dataTransfer.getData('text/uri-list')) {
+                var img = document.createElement('img');
+                img.src = e.dataTransfer.getData('text/uri-list');
+                drag.innerHTML = "";
+                drag.appendChild(img);
+            } else if (e.dataTransfer.files.length) {
+                var files = e.dataTransfer.files;
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    var li = document.createElement('li');
+                    var h5 = document.createElement('h5');
+                    h5.innerHTML = file.name;
+                    li.appendChild(h5);
+                    var p = document.createElement('p');
+                    p.innerHTML = file.lastModifiedDate.toLocaleDateString() + " " + file.lastModifiedDate.toLocaleTimeString() + " " +  (file.size / 1024).toFixed(2) + "kb";
+                    li.appendChild(p);
+                    fileList.appendChild(li);
+                }
+            }
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+    })();
+</script>
+</html>

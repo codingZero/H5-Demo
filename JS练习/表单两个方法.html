@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            outline: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var txt1 = document.getElementById("txt1");
+            var txt2 = document.getElementById("txt2");
+            txt1.focus();
+            txt2.onmouseover = function () {
+                this.select();
+            }
+        }
+    </script>
+</head>
+<body>
+    自动获得焦点
+    <input type="text" id="txt1">
+    鼠标经过选中
+    <input type="text" id="txt2">
+</body>
+</html>

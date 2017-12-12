@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <parent :title1="t1" :title2="t2"></parent>
+</div>
+
+<template id="child1">
+    <p>{{ content1 }}</p>
+</template>
+
+<template id="child2">
+    <p>{{ content2 }}</p>
+</template>
+
+<template id="parent">
+    <div>
+        <child1 :content1="title1"></child1>
+        <child2 :content2="title2"></child2>
+    </div>
+</template>
+
+<script>
+
+    let child2 = Vue.extend({
+        props: ['content2'],
+        template: '#child2'
+    })
+
+    Vue.component('parent', {
+        components: {
+            'child1': {
+                props: ['content1'],
+                template: '#child1'
+            },
+            'child2': child2,
+        },
+        template: '#parent',
+        props: ['title1', 'title2']
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            t1: '哈哈',
+            t2: '呵呵'
+        }
+    })
+</script>
+
+</body>
+</html>

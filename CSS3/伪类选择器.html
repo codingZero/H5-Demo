@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ol,ul {
+            float: left;
+        }
+
+        /*查找ul的所有同类兄弟元素，包括它本身，下标从1开始，选中下标n对应的元素*/
+        ul:nth-of-type(1) {
+             font-size: 20px;
+         }
+
+        /*查找ul的所有兄弟元素，包括它本身，下标从1开始，如果下标n对应是同类元素，则选中，否则不选中*/
+        ul:nth-child(3) {
+            color: red;
+        }
+
+        /*查找ul的第一个兄弟元素，可以是它本身，如果是同类元素则选中，否则不选中*/
+        ul:first-child {
+            background-color: blue;
+        }
+
+        /*选中ul的第一个同类兄弟元素，可以是它本身*/
+        ul:first-of-type {
+            background-color: yellow;
+        }
+
+        /*作用与nth-of-type类似，只不过从后往前*/
+        ul:nth-last-of-type(1) {
+            background-color: green;
+        }
+
+        /*作用与nth-child类型，只不过从后往前*/
+        ul:nth-last-child(2) {
+            color: blue;
+        }
+
+        div.test {
+            overflow: hidden;
+        }
+
+        div[class~='box'] {
+            width: 100px;
+            height: 100px;
+            color: white;
+            background-color: red;
+        }
+
+        p:empty {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            color: blue;
+        }
+
+        .ppp {
+            background-color: red;
+        }
+
+        .ppp::before {
+            content: '呵呵';
+            display: block;
+            color: white;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        .ppp:after {
+            content: '嘻嘻';
+            color: yellow;
+        }
+
+        input::selection {
+            color: red;
+        }
+
+        input::placeholder {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <!--<ul>-->
+            <!--<li>第1个元素</li>-->
+            <!--<li>第2个元素</li>-->
+            <!--<li>第3个元素</li>-->
+            <!--<li>第4个元素</li>-->
+            <!--<li>第5个元素</li>-->
+        <!--</ul>-->
+        <ol>
+            <li>第1个元素</li>
+            <li>第2个元素</li>
+            <li>第3个元素</li>
+            <li>第4个元素</li>
+            <li>第5个元素</li>
+        </ol>
+        <ul>
+            <li>第1个元素</li>
+            <li>第2个元素</li>
+            <li>第3个元素</li>
+            <li>第4个元素</li>
+            <li>第5个元素</li>
+        </ul>
+        <ul>
+            <li>第1个元素</li>
+            <li>第2个元素</li>
+            <li>第3个元素</li>
+            <li>第4个元素</li>
+            <li>第5个元素</li>
+        </ul>
+        <ul>
+            <li>第1个元素</li>
+            <li>第2个元素</li>
+            <li>第3个元素</li>
+            <li>第4个元素</li>
+            <li>第5个元素</li>
+        </ul>
+        <ul>
+            <li>第1个元素</li>
+            <li>第2个元素</li>
+            <li>第3个元素</li>
+            <li>第4个元素</li>
+            <li>第5个元素</li>
+        </ul>
+        <ol>
+            <li>第1个元素</li>
+            <li>第2个元素</li>
+            <li>第3个元素</li>
+            <li>第4个元素</li>
+            <li>第5个元素</li>
+        </ol>
+    </div>
+
+    <div class="box box1 box2">
+        哈哈哈哈
+    </div>
+
+    <p></p>
+    <p class="ppp">哈哈</p>
+
+    <input type="text" value="这是一段测试的文本" placeholder="占位文字">
+</body>
+</html>

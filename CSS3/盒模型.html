@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            margin: 50px;
+            border: 10px solid red;
+            overflow: hidden;
+            background-color: yellow;
+            background-clip: content-box;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            margin: 50px;
+            border: 10px solid red;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-color: yellow;
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">这是内容这是内容</div>
+    <div class="box1">这是内容这是内容</div>
+</body>
+</html>

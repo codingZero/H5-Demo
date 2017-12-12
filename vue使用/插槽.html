@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <my-div>
+        <p>这是内容哦</p>
+    </my-div>
+
+    <computer>
+        <div slot="cpu">
+            <p>intel core i7</p>
+            <p>intel core i8</p>
+        </div>
+        <p slot="gpu">这是gpu</p>
+        <p slot="memory">128G</p>
+    </computer>
+</div>
+
+<template id="my_div">
+    <div>
+        <h2>这是标题</h2>
+        <slot>这是要插入的内容</slot>
+    </div>
+</template>
+
+<template id="computer">
+    <div>
+        <slot name="cpu"><p>这是cpu插槽</p></slot>
+        <slot name="memory"><p>这是内存插槽</p></slot>
+        <slot name="gpu"><p>这是gpu插槽</p></slot>
+    </div>
+</template>
+
+<script src="vue.js"></script>
+<script>
+    Vue.component('my-div', {
+        template: '#my_div'
+    })
+
+    Vue.component('computer', {
+        template: '#computer'
+    })
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

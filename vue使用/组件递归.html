@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <custom-menu :list="list"></custom-menu>
+    </div>
+
+    <template id="custom-list">
+        <ul>
+            <li v-for="item in list">
+                <p>{{item.title}}</p>
+                <custom-list v-if="item.children" :list="item.children"></custom-list>
+            </li>
+        </ul>
+    </template>
+
+    <script>
+        var list = [ {
+            title: '目录',
+            children: [{
+                title: '我的音乐',
+                children: [{
+                    title: '张宇',
+                    children: [{
+                        title: '雨一直下'
+                    },{
+                        title: '月亮惹的祸'
+                    }]
+                },{
+                    title: '王杰',
+                    children: [{
+                        title: '一场游戏一场梦',
+                        children: [{
+                            title: '歌词'
+                        },{
+                            title: '曲谱'
+                        }]
+                    }]
+                }]
+            }, {
+                title: '我的照片',
+                children: [{
+                    title: '天安门照片'
+                },{
+                    title: '广州塔照片'
+                }]
+            }]
+        }]
+
+
+        Vue.component('custom-list', {
+            props: {
+                list: {
+                    type: Array,
+                    default: []
+                }
+            },
+            template: '#custom-list'
+        })
+
+        Vue.component('custom-menu', {
+            props: {
+                list:{
+                    type: Array,
+                    default: []
+                }
+            },
+            template: `
+            <div>
+                <custom-list :list="list"></custom-list>
+            </div>
+        `
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                list: list
+            }
+        })
+    </script>
+</body>
+</html>

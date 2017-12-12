@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    width: 1200px;
+    height: 500px;
+    margin: 100px auto;
+    position: relative;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+}
+
+.slider .pic {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slider img {
+    width: 100%;
+}
+
+.arrow {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -56px;
+    z-index: 999;
+    opacity: 0;
+}
+
+.prev, .next {
+    display: inline-block;
+    width: 76px;
+    height: 112px;
+}
+
+.prev {
+    background: url(../images/xzBanner/prev.png);
+    float: left;
+}
+
+.next {
+    background: url(../images/xzBanner/next.png);
+    float: right;
+}

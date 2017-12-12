@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script src="template-web.js"></script>
+
+    <style>
+        div {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 100px;
+            margin-top: 5px;
+            padding-left: 10px;
+            background-color: gray;
+            width: 200px;
+        }
+    </style>
+
+    <script id="temp" type="text/html">
+        {{if s}}
+            {{each s value}}
+                <li>{{value}}</li>
+            {{/each}}
+        {{/if}}
+    </script>
+
+    <script>
+        function callback1(data) {
+            console.log(data);
+        }
+
+        $(function () {
+            $("#key").keyup(function () {
+                var url = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + $(this).val();
+                $.ajax({
+                    url: url,
+                    dataType: 'jsonp',
+                    jsonp: 'cb',
+                    jsonpCallback: 'callback1',
+                    async: false,
+                    success: function (data) {
+                        $("#info").html(template('temp', data))
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="box">
+        请输入关键字：<input type="text" id="key">
+        <input type="button" value="搜索">
+        <ul id="info"></ul>
+    </div>
+
+</body>
+</html>

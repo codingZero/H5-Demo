@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.showInfo = function () {
+            console.log("我叫" + this.name + "，今年" + this.age + "岁");
+        }
+
+        Person.height = 175;
+        alert(Person.height);
+
+        var p = new Person('张三', 23);
+        p.showInfo();
+
+        var p1 = new Person('李四', 25);
+        p1.showInfo();
+
+        for (var x in p) {
+            console.log(x + " = " + p[x]);
+        }
+
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

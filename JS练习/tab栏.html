@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 350px;
+            height: 300px;
+            border: 1px solid #ddd;
+            margin: 100px auto;
+        }
+
+        .mt span {
+            display: inline-block;
+            width: 80px;
+            line-height: 30px;
+            background-color: pink;
+            margin-right: 7px;
+            text-align: center;
+        }
+
+        .mt span.current {
+            background-color: purple;
+        }
+
+        .md {
+            width: 350px;
+            height: 270px;
+            overflow: hidden;
+        }
+
+        .md li {
+            list-style: none;
+            width: 350px;
+            height: 270px;
+            background-color: purple;
+            display: none;
+        }
+
+        .md li.show {
+            display: block;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            function tab(id) {
+                var box = document.getElementById(id);
+                var spans = box.getElementsByTagName('span');
+                var lis = box.getElementsByTagName('li');
+                for (var i = 0; i < spans.length; i++) {
+                    var timer = null;
+                    spans[i].onmouseover = function (num) {
+                        return function () {
+                            clearTimeout(timer);
+                            timer = setTimeout(function () {
+                                for (var j = 0; j < spans.length; j++){
+                                    spans[j].className = '';
+                                    lis[j].className = '';
+                                }
+                                spans[num].className = 'current';
+                                lis[num].className = 'show';
+                            }, 300)
+                        }
+                    }(i);
+                    spans[i].onmouseout = function () {
+                        clearTimeout(timer);
+                    }
+                }
+            }
+            tab('one');
+            tab('two');
+            tab('three');
+
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="box" id="one">
+        <div class="mt">
+            <span class="current">新闻</span><span>游戏</span><span>财经</span><span>军事</span>
+        </div>
+        <div class="md">
+            <ul>
+                <li class="show">新闻模块</li>
+                <li>游戏模块</li>
+                <li>财经模块</li>
+                <li>军事模块</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box" id="two">
+        <div class="mt">
+            <span class="current">新闻</span><span>游戏</span><span>财经</span><span>军事</span>
+        </div>
+        <div class="md">
+            <ul>
+                <li class="show">新闻模块</li>
+                <li>游戏模块</li>
+                <li>财经模块</li>
+                <li>军事模块</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box" id="three">
+        <div class="mt">
+            <span class="current">新闻</span><span>游戏</span><span>财经</span><span>军事</span>
+        </div>
+        <div class="md">
+            <ul>
+                <li class="show">新闻模块</li>
+                <li>游戏模块</li>
+                <li>财经模块</li>
+                <li>军事模块</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

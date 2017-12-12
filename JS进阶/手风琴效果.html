@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 1200px;
+            height: 460px;
+            border: 1px solid red;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+            width: 1300px;
+        }
+
+        ul li {
+            float: left;
+            height: 460px;
+            width: 240px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
+<script src="js/animate.js"></script>
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box');
+        var lis = box.firstElementChild.children;
+        for (var i = 0; i < lis.length; i++) {
+            var li = lis[i];
+            li.style.background = "url(images/SFQ/0" + (i + 1) + ".jpg)";
+            li.onmouseover = function () {
+                for (var j = 0; j < lis.length; j++) {
+                    if (lis[j] == this) {
+                        animate(this, {width: 800});
+//                        changeWidth(this, 800);
+                    } else {
+//                        changeWidth(lis[j], 100);
+                        animate(lis[j], {width: 100});
+                    }
+                }
+            }
+            li.onmouseout = function () {
+                for (var j = 0; j < lis.length; j++) {
+                    animate(lis[j], {width: 240});
+//                    changeWidth(lis[j], 240);
+                }
+
+            }
+        }
+    }
+
+    function changeWidth(obj, width) {
+        obj.style.width = width + "px";
+    }
+
+</script>

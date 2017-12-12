@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .box {
+            width: 800px;
+            height: 42px;
+            background: url(images/rss.png) no-repeat right center #fff;
+            margin: 50px auto;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .cloud {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 83px;
+            height: 42px;
+            background: url(images/cloud.gif) no-repeat;
+        }
+
+        ul {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+
+        ul li {
+            float: left;
+            width: 83px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="cloud" id="cloud"></span>
+        <ul id="ul">
+            <li>哈哈哈哈</li>
+            <li>呵呵呵呵</li>
+            <li>嘻嘻嘻嘻</li>
+            <li>哼哼哼哼</li>
+            <li>嘿嘿嘿嘿</li>
+            <li>嚯嚯嚯嚯</li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    var cloud = document.getElementById('cloud');
+    var ul = document.getElementById('ul');
+
+    var leader = 0, target = 0, current = 0;
+
+    for (var i = 0; i < ul.children.length; i++) {
+        ul.children[i].onmouseover = function () {
+            target = this.offsetLeft;
+        }
+        ul.children[i].onmouseout = function () {
+            target = current;
+        }
+        ul.children[i].onclick = function () {
+            current = this.offsetLeft;
+        }
+    }
+
+    setInterval(function () {
+        leader = leader + (target - leader) / 10;
+        cloud.style.left = leader  + "px";
+    }, 10)
+</script>
+</html>

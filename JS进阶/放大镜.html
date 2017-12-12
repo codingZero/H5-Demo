@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #fdj {
+            width: 350px;
+            height: 350px;
+            border: 1px solid #ccc;
+            margin: 100px 0 0 100px;
+            position: relative;
+        }
+
+        #big {
+            position: absolute;
+            top: 0;
+            left: 360px;
+            width: 450px;
+            height: 450px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        #small {
+            width: 100%;
+            height: 100%;
+        }
+
+        #mask {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255,255,0,0.4);
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            cursor: move;
+        }
+
+        #image {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="fdj">
+        <div id="small">
+            <img src="images/001.jpg" alt="">
+            <span id="mask"></span>
+        </div>
+        <div id="big">
+            <img src="images/0001.jpg" alt="" id="image">
+        </div>
+    </div>
+</body>
+
+<script>
+    var mask = document.getElementById('mask');
+    var small = document.getElementById('small');
+    var big = document.getElementById('big');
+    var image = document.getElementById('image');
+    var leaderX = 0, targetX = 0, leaderY = 0, targetY = 0;
+
+    small.onmouseover = function () {
+        mask.style.display = "block";
+        big.style.display = "block";
+    }
+
+    small.onmouseout = function () {
+        mask.style.display = "none";
+        big.style.display = "none";
+    }
+
+    small.onmousemove = function (event) {
+
+        targetX = event.pageX - this.offsetParent.offsetLeft - mask.offsetWidth / 2;
+        if (targetX < 0) targetX = 0;
+        var maxX = small.offsetWidth - mask.offsetWidth;
+        if (targetX > maxX) targetX = maxX;
+
+        targetY= event.pageY - this.offsetParent.offsetTop - mask.offsetHeight / 2;
+        if (targetY < 0) targetY = 0;
+        var maxY = small.offsetHeight - mask.offsetHeight;
+        if (targetY > maxY) targetY = maxY;
+
+
+        var x = mask.offsetLeft / (small.offsetWidth - mask.offsetWidth);
+        var y = mask.offsetTop / (small.offsetHeight - mask.offsetHeight);
+        image.style.left = x * -(800 - big.offsetWidth) + "px";
+        image.style.top = y * -(800 - big.offsetHeight) + "px";
+
+    }
+
+    setInterval(function () {
+        leaderX = leaderX + (targetX - leaderX) / 10;
+        leaderY = leaderY + (targetY - leaderY) / 10;
+        mask.style.left = leaderX + "px";
+        mask.style.top = leaderY + "px";
+    }, 5)
+</script>
+</html>

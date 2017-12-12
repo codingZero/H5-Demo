@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid #cccccc;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            width: 100px;
+            height: 30px;
+            text-align: center;
+        }
+
+        th:nth-child(3), td:nth-child(3) {
+            width: 300px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            getData('data.xml', 'tbody1');
+            getData('data.json', 'tbody2');
+        }
+
+        function getData(url, tbodyId) {
+            var xhr = null;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else {
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+
+            xhr.open('get', url, true);
+            xhr.send(null);
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var tbody = document.getElementById(tbodyId);
+                    var type = url.split('.')[1];
+                    if (type == 'xml') {
+                        tbody.innerHTML = parseXML(this.responseXML);
+                    } else {
+                        tbody.innerHTML = parseJSON(this.responseText);
+                    }
+
+                }
+            }
+        }
+
+        function parseXML(xml) {
+            var bookstore = xml.getElementsByTagName('bookstore')[0];
+            var books = bookstore.getElementsByTagName('book');
+
+            var tr = "";
+            for (var i = 0; i < books.length; i++) {
+                var book = books[i];
+                var name = book.getElementsByTagName('name')[0];
+                var category = book.getElementsByTagName('category')[0];
+                var desc = book.getElementsByTagName('desc')[0];
+                tr += "<tr><td>" + name.innerHTML + "</td><td>" + category.innerHTML+ "</td><td>" + desc.innerHTML + "</td></tr>";
+            }
+            return tr;
+        }
+
+        function parseJSON(json) {
+            json = JSON.parse(json);
+            var total = json.total;
+            var data = json.data;
+            var tr = "";
+            for (var i = 0; i < total; i++) {
+                var book = data[i];
+                tr += "<tr><td>" + book.name + "</td><td>" + book.category+ "</td><td>" + book.desc + "</td></tr>";
+            }
+            return tr;
+        }
+    </script>
+</head>
+<body>
+    <h3>xml数据</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>书名</th>
+                <th>类型</th>
+                <th>描述</th>
+            </tr>
+        </thead>
+        <tbody id="tbody1"></tbody>
+    </table>
+    <h3>json数据</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>书名</th>
+            <th>类型</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody id="tbody2"></tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #scrollBar {
+            width: 400px;
+            height: 8px;
+            background-color: #aaa;
+            margin: 100px;
+            position: relative;
+        }
+
+        #bar {
+            height: 22px;
+            width: 10px;
+            position: absolute;
+            top: -7px;
+            left: 0;
+            background-color: #369;
+        }
+
+        #blue {
+            width: 0;
+            height: 100%;
+            background-color: #369;
+        }
+    </style>
+</head>
+<body>
+    <div id="scrollBar">
+        <div id="blue"></div>
+        <div id="bar"></div>
+    </div>
+
+    <div id="progress">
+        拖动了0%
+    </div>
+</body>
+
+<script>
+    var scrollBar = document.getElementById('scrollBar');
+    var bar = document.getElementById('bar');
+    var progress = document.getElementById('progress');
+    var blue = document.getElementById('blue');
+    bar.onmousedown = function (event) {
+        var val = event.pageX - this.offsetLeft;
+        document.onmousemove = function (event) {
+            var left = event.pageX - val;
+            if (left < 0) left = 0;
+            if (left > 390) left = 390;
+            bar.style.left = left + "px";
+            blue.style.width = bar.style.left;
+            progress.innerHTML = "拖动了" + parseInt(left / 390 * 100) + "%";
+        }
+
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    }
+</script>
+</html>

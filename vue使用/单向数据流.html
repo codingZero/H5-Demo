@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="main">
+        <h2>父组件的count</h2>
+        <p>{{ count }}</p>
+        <custom-component :count="count" @count-add="incrementTotal"></custom-component>
+    </div>
+</body>
+<script>
+    Vue.component('custom-component', {
+        props: {
+            count: {
+                validator(value) {
+                    return value >= 0
+                }
+            }
+        },
+        data() {
+            return {
+                incrementCount: this.count
+            }
+        },
+        template: `<div>
+                        <h2>我是一个自定义组件</h2>
+                        <input type="button" value="点我" @click="increment">
+                        <p>{{ incrementCount }}</p>
+                    </div>`,
+        methods: {
+            increment() {
+                this.incrementCount++
+                this.$emit('count-add')
+            }
+        }
+    })
+
+    new Vue({
+        el: '#main',
+        data: {
+            count: 0
+        },
+        methods: {
+            incrementTotal() {
+                this.count += 2
+            }
+        }
+    })
+</script>
+</html>

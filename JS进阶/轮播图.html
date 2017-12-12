@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 500px;
+            height: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul {
+            list-style: none;
+            width: 800%;
+            position: absolute;
+            left: 0;
+        }
+        
+        ul li {
+            float: left;
+        }
+
+        ol {
+            list-style: none;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        ol li {
+            font-size: 12px;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            border-radius: 50%;
+            text-align: center;
+            background-color: #fff;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        ol li.current {
+            background-color: orange;
+            color: #fff;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var box = document.getElementById('box');
+            var banner = document.getElementById('banner');
+            var ul = banner.firstElementChild;
+            var lisCount = ul.children.length;
+            ul.appendChild(ul.firstElementChild.cloneNode(true));
+
+            var ol = document.createElement('ol');
+            box.appendChild(ol);
+            for (var i = 0; i < lisCount; i++) {
+                var li = document.createElement('li');
+                li.innerHTML = i + 1;
+                li.index = i;
+                ol.appendChild(li);
+                if (i == 0) li.className = "current";
+            }
+
+            var index = 0, time = 2000;
+            var timer = setInterval(autoPlay, time);
+
+            for (var i = 0; i < lisCount; i++) {
+                var li = ol.children[i];
+                li.index = i;
+                li.onmouseover = function () {
+                    for (var j = 0; j < lisCount; j++) {
+                        ol.children[j].className = "";
+                    }
+                    this.className = "current";
+                    index = this.index;
+                    animate(ul, -500 * index);
+                }
+            }
+
+            box.onmouseover = function () {
+                clearInterval(timer);
+            }
+
+            box.onmouseout = function () {
+                timer = setInterval(autoPlay, 2000);
+            }
+
+            function autoPlay() {
+                index++;
+                if (index == lisCount+1) {
+                    index = 1;
+                    ul.style.left = 0;
+                }
+                animate(ul, -500 * index);
+                for (var i = 0; i < lisCount; i++) {
+                    if (index % lisCount == i) {
+                        ol.children[i].className = "current";
+                    } else {
+                        ol.children[i].className = "";
+                    }
+                }
+            }
+
+            function animate(obj, target) {
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function () {
+                    var speed = ul.offsetLeft > target? -10 : 10;
+                    ul.style.left = ul.offsetLeft + speed + "px";
+                    var result = ul.offsetLeft - target;
+                    if (Math.abs(result) < 10) clearInterval(obj.timer);
+                }, 10)
+             }
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="banner" id="banner">
+            <ul>
+                <li><img src="images/banner/1.jpg" alt=""></li>
+                <li><img src="images/banner/2.jpg" alt=""></li>
+                <li><img src="images/banner/3.jpg" alt=""></li>
+                <li><img src="images/banner/4.jpg" alt=""></li>
+                <li><img src="images/banner/5.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

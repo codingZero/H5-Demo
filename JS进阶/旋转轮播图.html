@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/xzBanner.css">
+    <script src="js/animate.js"></script>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="slider" id="slider">
+            <div class="pic"><a href="#"><img src="images/xzBanner/slidepic1.jpg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="images/xzBanner/slidepic2.jpg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="images/xzBanner/slidepic3.jpg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="images/xzBanner/slidepic4.jpg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="images/xzBanner/slidepic5.jpg" alt=""></a></div>
+        </div>
+        <div class="arrow" id="arrow">
+            <span class="prev"></span>
+            <span class="next"></span>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        var json = [
+            {width:400,top:20,left:50,opacity:20,zIndex:2},
+            {width:600,top:70,left:0,opacity:80,zIndex:3},
+            {width:800,top:100,left:200,opacity:100,zIndex:4},
+            {width:600,top:70,left:600,opacity:80,zIndex:3},
+            {width:400,top:20,left:750,opacity:20,zIndex:2}
+        ];
+
+        var box = document.getElementById('box');
+        var slider = document.getElementById('slider');
+        var arrow = document.getElementById('arrow');
+        var finish = true;
+        change();
+
+        for (var i = 0; i < arrow.children.length; i++) {
+            arrow.children[i].onclick = function () {
+                if (this.className == "prev") {
+                    change(true);
+                } else {
+                    change(false);
+                }
+            }
+        }
+
+        function change(flag) {
+            if (!finish) return;
+            finish = false;
+
+            if (flag) {
+                json.push(json.shift());
+            } else {
+                json.unshift(json.pop());
+            }
+
+            for (var i = 0; i < slider.children.length; i++) {
+                animate(slider.children[i], json[i], function () {
+                    finish = true;
+                });
+            }
+        }
+
+        box.onmouseover = function () {
+            animate(arrow, {opacity: 100});
+        }
+
+        box.onmouseout = function () {
+            animate(arrow, {opacity: 0});
+        }
+    }
+</script>

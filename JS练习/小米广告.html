@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 512px;
+            height: 390px;
+            overflow: hidden;
+            margin: 100px auto;
+            position: relative;
+            border: 1px solid red;
+        }
+
+        .box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .box span {
+            width: 100%;
+            height: 195px;
+            position: absolute;
+            left: 0;
+        }
+
+        #up {
+            top: 0;
+        }
+
+        #down {
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="images/mi.png" alt="" id="pic">
+        <span id="up"></span>
+        <span id="down"></span>
+    </div>
+
+
+    <script>
+        var num = "abcdef";
+        alert(num.charCodeAt(3));
+
+        function $(id) {return document.getElementById(id);}
+        var num = 0, timer;
+        $('up').onmouseover = function () {
+            if (num <= -1080) return;
+            timer = setInterval(function () {
+                num -= 5;
+                if (num <= -1080) {
+                    clearInterval(timer);
+                }
+                $('pic').style.top = num + 'px';
+            }, 30)
+        }
+
+        $('up').onmouseout = function () {
+            clearInterval(timer);
+        }
+
+        $('down').onmouseover = function () {
+            if (num >= 0) return;
+            timer = setInterval(function () {
+                num += 5;
+                if (num >= 0) {
+                    clearInterval(timer);
+                }
+                $('pic').style.top = num + 'px';
+            }, 30)
+        }
+
+        $('down').onmouseout = function () {
+            clearInterval(timer);
+        }
+    </script>
+</body>
+</html>

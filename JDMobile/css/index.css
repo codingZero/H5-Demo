@@ -1,0 +1,302 @@
+
+body {
+    background-color: #e0e0e0;
+}
+
+.outbox {
+    min-width: 320px;
+    max-width: 640px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.topBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 100%;
+
+}
+
+.topBox .topBar {
+    min-width: 320px;
+    max-width: 640px;
+    height: 40px;
+    background-color: rgba(201, 23, 0, 0);
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.topBar .icon_logo {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    height: 28px;
+    width: 60px;
+    background-position: 0 -103px;
+}
+
+.topBar form {
+    width: 100%;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 75px;
+    padding-right: 55px;
+}
+
+.topBar form .icon_search {
+    position: absolute;
+    left: 80px;
+    width: 23px;
+    height: 26px;
+    background-position: -56px -103px;
+}
+
+
+.topBar form input {
+    padding-left: 35px;
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+}
+
+
+.topBar .login {
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    color: white;
+}
+
+.banner {
+    width: 100%;
+    position: relative;
+    z-index: -1;
+}
+
+.banner ul.top {
+    width: 1000%;
+    transform: translateX(-10%);
+}
+
+.banner ul.top li {
+    float: left;
+    width: 10%;
+}
+
+.banner ul.top li img{
+    width: 100%;
+    display: block;
+}
+
+.banner ul.bottom {
+    width: 120px;
+    height: 10px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.banner ul.bottom li {
+    float: left;
+    margin-left: 8px;
+    width: 6px;
+    height: 6px;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+nav  {
+    background-color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    width: 100%;
+}
+
+nav ul li {
+    width: 25%;
+    float: left;
+    text-align: center;
+    margin-top: 8px;
+}
+
+
+nav ul li a {
+    text-emphasis: circle;
+}
+
+nav ul li img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+nav ul li p {
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+main {
+    padding: 0 5px 5px;
+}
+
+main section {
+    margin-top: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 1px 1px #e0e0e0;
+}
+
+main section .top {
+    height: 32px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+main section .top.noBorder {
+    border: none;
+}
+
+.sk .top .left {
+    float: left;
+    line-height: 32px;
+}
+
+.sk .top .left .sk_icon {
+    float: left;
+    margin-left: 8px;
+    margin-top: 5px;
+    width: 16px;
+    height: 20px;
+    background: url(../images/seckill-icon.png);
+    background-size: 16px 20px;
+}
+
+.sk .top .left h4 {
+    float: left;
+    margin-left: 8px;
+    color: red;
+}
+
+.sk .top .left .time {
+    float: left;
+    margin-left: 3px;
+}
+
+.sk .top .time span {
+    float: left;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    background-color: black;
+    margin-left: 3px;
+    color: white;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.sk .top .time span.noBg {
+    color: #666666;
+    background-color: transparent;
+    margin-left: 0;
+}
+
+.sk .top .right {
+    float: right;
+    line-height: 32px;
+    padding-right: 10px;
+}
+
+.sk .bottom ul{
+    width: 100%;
+    display: flex;
+    padding: 5px 0;
+}
+
+.sk .bottom li {
+    flex: 1;
+    text-align: center;
+}
+
+.sk .bottom li div {
+    padding: 0 18%;
+    border-right: 1px solid #cccccc;
+}
+
+.sk .bottom li:last-child div {
+    border-right: none;
+}
+
+.sk .bottom li img {
+    width: 100%;
+}
+
+.sk .bottom li p {
+    font-size: 13px;
+}
+
+.sk .bottom li p.new_price {
+    color: red;
+}
+
+.sk .bottom li p.old_price {
+    color: #888;
+    text-decoration: line-through;
+}
+
+.product .top h3 {
+    font-size: 15px;
+    font-weight: normal;
+    position: relative;
+    padding-left: 15px;
+    line-height: 32px;
+}
+
+.product .top h3::before {
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    content: '';
+    width: 3px;
+    height: 15px;
+    background-color: red;
+}
+
+.product .p_left{
+    float: left;
+}
+
+.product .p_right {
+    float: right;
+}
+
+.product .b_right {
+    border-right: 1px solid #cccccc;
+}
+
+.product .b_left {
+    border-left: 1px solid #cccccc;
+}
+
+.product .b_bottom {
+    border-bottom: 1px solid #cccccc;
+}
+
+.product a {
+    width: 50%;
+}
+
+.product a img {
+    display: block;
+    width: 100%;
+}

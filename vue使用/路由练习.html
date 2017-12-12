@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        body {
+            background-color: #e8e8e8;
+        }
+
+        #app {
+            width: 90%;
+            margin: 100px auto;
+            overflow: hidden;
+            border: 1px solid gray;
+        }
+
+        .left {
+            float: left;
+            width: 30%;
+        }
+
+        .right {
+            float: left;
+            width: 65%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            background-color: #fff;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="left">
+        <ul>
+            <li><router-link to="/h5">html5</router-link></li>
+            <li><router-link to="/java">java</router-link></li>
+            <li><router-link to="/python">python</router-link></li>
+        </ul>
+    </div>
+    <div class="right">
+        <router-view></router-view>
+    </div>
+
+</div>
+
+
+<template id="h5">
+    <div class="h5">
+        <h2>HTML学院</h2>
+        <p>神奇的HTML</p>
+        <ul>
+            <li><router-link :to="{name: 'basic'}">基础班</router-link></li>
+            <li><router-link to="/h5/big">大神班</router-link></li>
+        </ul>
+        <router-view></router-view>
+    </div>
+</template>
+
+<template id="java">
+    <div class="java">
+        <h2>java学院</h2>
+        <p>java是不是世界上最好的语言</p>
+    </div>
+</template>
+
+<template id="python">
+    <div class="python">
+        <h2>python学院</h2>
+        <p>炒得最火的语言</p>
+    </div>
+</template>
+
+<template id="basic">
+    <div class="basic">
+        <h2>基础班</h2>
+        <p>快速入门html</p>
+    </div>
+</template>
+
+<template id="big">
+    <div class="big">
+        <h2>大神班</h2>
+        <p>精通html</p>
+    </div>
+</template>
+
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+
+    const h5 = Vue.extend({
+        template: '#h5'
+    })
+
+    const java = Vue.extend({
+        template: '#java'
+    })
+
+    const python = Vue.extend({
+        template: '#python'
+    })
+
+    const basic = Vue.extend({
+        template: '#basic'
+    })
+
+    const big = Vue.extend({
+        template: '#big'
+    })
+
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/h5',
+                component: h5,
+                children: [
+                    {path: 'basic', component: basic, name: 'basic'},
+                    {path: 'big', component: big},
+                    {path: '/', component: basic}
+                ]
+            },
+            {path: '/java', component: java},
+            {path: '/python', component: python},
+            {path: '/', redirect: '/h5'}
+        ]
+    })
+
+    new Vue({
+        router
+    }).$mount('#app')
+</script>
+</body>
+</html>

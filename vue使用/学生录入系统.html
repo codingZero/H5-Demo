@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style>
+
+        #app {
+            margin: 50px auto;
+            width: 600px;
+        }
+
+
+        table {
+            width: 100%;
+            border: 2px solid orange;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        thead {
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <fieldset>
+            <legend>学生录入系统</legend>
+            <p>姓名：<input type="text" placeholder="请输入姓名" v-model="person.name"></p>
+            <p>年龄：<input type="text" value="0" v-model="person.age"></p>
+            <p>性别：
+                <select name="sex" v-model="person.sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </p>
+            <p>手机：<input type="text" v-model="person.phone" placeholder="请输入手机号"></p>
+            <p><input type="button" value="创建新用户" @click="addPerson"></p>
+        </fieldset>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <td>姓名</td>
+                        <td>性别</td>
+                        <td>年龄</td>
+                        <td>手机</td>
+                        <td>删除</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="person in persons">
+                        <td>{{ person.name }}</td>
+                        <td>{{ person.age }}</td>
+                        <td>{{ person.sex }}</td>
+                        <td>{{ person.phone}}</td>
+                        <td><input type="button" value="删除" @click="deleteItem(person)"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            person: {
+                name: '',
+                age: 0,
+                sex: '男',
+                phone: '',
+            },
+            persons: []
+        },
+        methods: {
+            addPerson () {
+                this.persons.push(this.person)
+                this.person = {name: '',
+                    age: 0,
+                    sex: '男',
+                    phone: '',
+                }
+            },
+            deleteItem(person) {
+                let index = this.persons.indexOf(person)
+                this.persons.splice(index, 1)
+            }
+        }
+    })
+
+
+</script>
+</body>
+</html>

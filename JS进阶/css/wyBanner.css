@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    width: 310px;
+    height: 280px;
+    margin: 100px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    width: 100%;
+    height: 220px;
+    background-color: red;
+}
+
+.slider ul {
+    list-style: none;
+}
+
+.slider li {
+    width: 310px;
+    height: 220px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slider li img {
+    width: 100%;
+    height: 100%;
+}
+
+.ctrl {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.ctrl-page {
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    background: url(../images/wyBanner/icon.png) no-repeat -24px -782px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.current {
+    background: url(../images/wyBanner/icon.png) no-repeat -24px -762px;
+}
+
+.ctrl-left, .ctrl-right {
+    position: absolute;
+    top: 30%;
+    margin-top: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 35px;
+    background: url(../images/wyBanner/icon.png) no-repeat 5px top;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.ctrl-left {
+    left: 0;
+}
+
+.ctrl-right {
+    right: 0;
+    background-position: -5px -44px;
+}

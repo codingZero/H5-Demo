@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select {
+            width: 150px;
+            height: 200px;
+            font-size: 20px;
+            float: left;
+        }
+        div {
+            float: left;
+            width: 40px;
+            margin-left: 10px;
+        }
+
+        div button {
+            margin-top: 10px;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#sel_all").on("click", function () {
+               $("#tar_city").append($("#src_city").children());
+            });
+            $("#sel_none").on("click", function () {
+               $("#src_city").append($("#tar_city").children());
+            });
+            $("#sel").on("click", function () {
+                $("#tar_city").append($("#src_city").children(":selected"));
+            });
+            $("#back").on("click", function () {
+                $("#src_city").append($("#tar_city").children(":selected"));
+            });
+        });
+    </script>
+</head>
+<body>
+    <select name="src-city" id="src_city" multiple>
+        <option value="">北京</option>
+        <option value="">上海</option>
+        <option value="">广州</option>
+        <option value="">深圳</option>
+    </select>
+    <div>
+        <button id="sel_all">&gt;&gt;</button>
+        <button id="sel_none">&lt;&lt;</button>
+        <button id="sel">&gt;</button>
+        <button id="back">&lt;</button>
+    </div>
+    <select name="tar-city" id="tar_city" multiple>
+
+    </select>
+</body>
+</html>

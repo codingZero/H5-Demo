@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            background-color: green;
+            width: 270px;
+            padding-left: 10px;
+            margin: 100px auto;
+            height: 25px;
+        }
+
+        ul {
+            list-style: none;
+
+        }
+        
+        .box li {
+            float: left;
+            background-color: blue;
+            color: white;
+            margin-right: 10px;
+            line-height: 25px;
+            width: 80px;
+            height: 25px;
+        }
+
+        .box li ul {
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#drap>li").mouseenter(function () {
+                $(this).children("ul").stop().slideDown();
+            });
+            $("#drap>li").mouseleave(function () {
+                $(this).children("ul").stop().slideUp();
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul id="drap">
+        <li>一级菜单
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+        <li>一级菜单
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ul></li>
+        <li>一级菜单
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

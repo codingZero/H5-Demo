@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        div#app, div#app2 {
+            width: 200px;
+            border: 1px solid red;
+            margin-left: 100px;
+        }
+
+        ul {
+            list-style: none;
+            background-color: gray;
+            padding: 0;
+        }
+        
+        ul li:hover {
+            background-color: yellow;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="app" style="float: left;">
+        <custom-select btn="查询" :list="list1"></custom-select>
+    </div>
+
+    <div id="app2"  style="float: left;">
+        <custom-select btn="搜索" :list="list2"></custom-select>
+    </div>
+</div>
+
+</body>
+<script>
+    Vue.component("custom-select", {
+        props: ['btn', 'list'],
+        data() {
+          return {
+              selectShow:false,
+              val: ''
+          }
+        },
+        template: `<div>
+                    <input type="text" :value="val" @click="selectShow = !selectShow">
+                    <input type="button" :value="btn" >
+                    <custom-list :items="list" @receive="changeValue" v-show="selectShow"></custom-list>
+                    </div>`,
+        methods: {
+            changeValue(item) {
+                this.val = item
+            }
+        }
+    })
+
+    Vue.component('custom-list', {
+        props: ['items'],
+        template: `<ul>
+                        <li v-for="item in items" @click="selectValue(item)">{{ item }}</li>
+                    </ul>`,
+        methods: {
+            selectValue(item) {
+                this.$emit('receive', item)
+            }
+        }
+    })
+
+    new Vue({
+        el: "#main",
+        data: {
+            list1: ['广州', '上海', '北京'],
+            list2: ['白沙', '芙蓉王', '云烟']
+        }
+    })
+
+</script>
+</html>

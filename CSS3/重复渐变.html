@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        .center {
+            width: 1000px;
+            margin: auto;
+        }
+
+        div.item {
+            width: 210px;
+            height: 210px;
+            float: left;
+            display: flex;
+            margin: 0 30px 30px 0;
+            background-color: white;
+        }
+
+        div.box {
+            width: 150px;
+            height: 150px;
+            margin: auto;
+        }
+
+        .item:nth-child(1) .box {
+            background-image: repeating-linear-gradient(yellow 20%, green 40%);
+        }
+
+        .item:nth-child(2) .box {
+            background-image: repeating-linear-gradient(to right, yellow 20%, green 40%);
+        }
+
+        .item:nth-child(3) .box {
+            background-image: repeating-radial-gradient(yellow 20%, green 40%);
+        }
+
+        .item:nth-child(4) .box {
+            background-image: repeating-radial-gradient(100px at 50px 50px, yellow 20%, green 40%);
+        }
+
+        .item:nth-child(5) .box {
+            height: 50px;
+            border-radius: 6px;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+            background-color: green;
+        }
+
+        .item:nth-child(6) .box {
+            border-radius: 50%;
+            background-image: radial-gradient(120px at 50px 50px, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+            background-color: blue;
+        }
+
+        .item:nth-child(7) .box {
+            height: 40px;
+            width: 180px;
+            background-color: yellow;
+            background-image: linear-gradient(135deg, green 25%, transparent 25%, transparent 50%, green 50%, green 75%, transparent 75%);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="center">
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

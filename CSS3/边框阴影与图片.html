@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        .center {
+            width: 1000px;
+            margin: auto;
+        }
+
+        .item {
+            width: 210px;
+            height: 210px;
+            background-color: white;
+            float: left;
+            margin: 0 30px 30px 0;
+            display: flex;
+        }
+
+        .shadow .item .box {
+            width: 150px;
+            height: 150px;
+            border: 1px solid red;
+            margin: auto;
+        }
+
+        .shadow .item:nth-child(1) .box {
+            box-shadow: 5px 5px red;
+        }
+
+        .shadow .item:nth-child(2) .box {
+            box-shadow: -5px -5px red;
+        }
+
+        .shadow .item:nth-child(3) .box {
+            box-shadow: 5px 5px 10px red;
+        }
+
+        .shadow .item:nth-child(4) .box {
+            box-shadow: 5px 5px 0 5px red;
+        }
+
+        .shadow .item:nth-child(5) .box {
+            box-shadow: 10px 10px 0 -5px red;
+        }
+
+        .shadow .item:nth-child(6) .box {
+            box-shadow: 10px 10px 10px -5px red;
+        }
+
+        .image .item .box {
+            width: 180px;
+            height: 90px;
+            margin: auto;
+            border-image-source: url(images/border.png);
+            border-image-width: 10px;
+            border-image-slice: 27;
+        }
+
+        .image .item:nth-child(2) .box {
+            border-image-repeat: round;
+        }
+
+        .image .item:nth-child(3) .box {
+            border-image-repeat: repeat;
+        }
+
+        .image .item:nth-child(4) .box {
+            border-image-repeat: round stretch;
+        }
+
+        .image .item:nth-child(5) .box {
+            height: 60px;
+            width: 60px;
+            border-image-repeat: round;
+        }
+
+        .image .item:nth-child(6) .box {
+            height: 180px;
+            border-image-slice: 27 40 40 27;
+            border-image-width: 60px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div class="shadow">
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+        </div>
+        <div class="image">
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+            <div class="item">
+                <div class="box"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        .box1 {
+            height: 500px;
+            background-color: red;
+            padding-top: 100px;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .box2 {
+            height: 300px;
+            width: 500px;
+            background-color: pink;
+            position: relative;
+        }
+
+        p {
+            background-color: blue;
+            color: #fff;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+
+            $("#box").append('<p></p>'); //在box里面追加p元素，会添加到inner_box的后面
+            $("#box1").appendTo('#box'); //将box1追加到box里面，会添加到p元素后面
+            $("#box").prepend('<span></span>'); //在box的前面添加span，会添加到inner_box的前面
+            $("#box2").prependTo('#box'); //将box2添加到box的里面，会添加到span的前面
+            $("#box").before('<ul></ul>'); //在box前面添加ul元素
+            $("#box").after('<ul></ul>'); //在box后面添加ul元素
+            $("#box").css({
+                height: "100px",
+                width: "50px",
+                backgroundColor: "red"
+            });
+            $("#box").html();
+
+        });
+    </script>
+</head>
+<body>
+<div id="box">
+    呵呵
+    <div id="inner_box">哈哈</div>
+</div>
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+</html>

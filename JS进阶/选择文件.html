@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        ul {
+            list-style: none;
+        }
+
+        h5, p {
+            margin: 0;
+            padding: 5px;
+        }
+
+        li {
+            border: 1px solid gray;
+            padding-left: 20px;
+            width: 300px;
+            margin-top: -1px;
+        }
+
+        #input_file {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" name="" id="input_file" multiple>
+    <input type="button" value="选择文件" id="select">
+    <ul id="file_list">
+
+    </ul>
+</body>
+<script>
+    (function () {
+        var inputFile = document.getElementById('input_file');
+        var file_list = document.getElementById('file_list');
+        var select = document.getElementById('select');
+
+        select.addEventListener('click', function () {
+            inputFile.click();
+        })
+
+        inputFile.addEventListener("change", function () {
+            file_list.innerHTML = "";
+            for (var i = 0; i < inputFile.files.length; i++) {
+                var file = inputFile.files[i];
+                var li = document.createElement('li');
+                var h5 = document.createElement('h5');
+                h5.innerHTML = file.name;
+                li.appendChild(h5);
+                var p = document.createElement('p');
+                p.innerHTML = file.lastModifiedDate.toLocaleDateString() + " " + file.lastModifiedDate.toLocaleTimeString() + " " +  (file.size / 1024).toFixed(2) + "kb";
+                li.appendChild(p);
+                file_list.appendChild(li);
+            }
+
+        });
+    })();
+</script>
+</html>

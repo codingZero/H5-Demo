@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .inner_c {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .cl {
+            clear: both;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .header {
+            background-color: #191D3A;
+            height: 58px;
+        }
+
+        .header .logo {
+            float: left;
+            padding-left: 16px;
+            padding-right: 40px;
+        }
+
+        .header .nav ul li {
+            font-size: 12px;
+            float: left;
+            line-height: 58px;
+            width: 100px;
+            text-align: center;
+            border-left: 1px solid #252947;
+        }
+
+        .header .nav ul li.last {
+            border-right: 1px solid #252947;
+        }
+
+        .header .nav ul li a {
+            display: block;
+            text-decoration: none;
+            color: #818496;
+        }
+
+        .header .nav ul li.current a , .header .nav ul li a:hover{
+            color: #E2E4ED;
+            background-color: #252947;
+        }
+
+        .header .join {
+            float: left;
+            padding-left: 48px;
+            padding-top: 12px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .header .join a {
+            text-decoration: none;
+            color: #FFFFFF;
+            display: block;
+            width: 98px;
+            background-color: #26CE50;
+            border: 1px solid #3ACA7A;
+            line-height: 32px;
+            border-radius: 5px;
+        }
+        
+        .header .join a:hover {
+            background-color: #36DE60;
+        }
+
+        .banner {
+            background: url("images/banner.jpg") no-repeat center top;
+            height: 464px;
+            position: relative;
+        }
+
+        .banner .circle {
+            width: 120px;
+            height: 12px;
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .banner .circle ul li {
+            float: left;
+            width: 12px;
+            height: 12px;
+            margin-right: 15px;
+            background-color: #FDDE90;
+            border-radius: 6px;
+        }
+        
+        .banner .circle ul li.current {
+            background-color: #FFFFFF;
+        }
+
+        .banner .circle ul li.last {
+            margin-right: 0;
+        }
+        
+        
+        .content {
+            background: url("images/indexmainbg.jpg") no-repeat center bottom;
+        }
+
+        .content .active {
+            padding: 50px 0;
+            border-bottom: 1px solid #DBE1E7;
+            position: relative;
+        }
+
+        .content .active ul li{
+            float: left;
+            width: 218px;
+            margin-right: 43px;
+        }
+
+        .content .active ul li.last {
+            width: 217px;
+            margin-right: 0;
+        }
+
+        .content .active ul li img {
+            width: 100%;
+        }
+
+        .content .active ul li h3 {
+            line-height: 36px;
+            font-size: 12px;
+            color: #444866;
+            text-align: center;
+        }
+
+        .content .active ul li p.play {
+            text-align: center;
+            line-height: 100%;
+        }
+
+        .content .active ul li p.play a {
+            text-decoration: none;
+            font-size: 11px;
+            color: #38B774;
+            padding-right: 10px;
+            background: url("images/sanjiaoxing.png") no-repeat right center;
+        }
+
+        .content .active .circle {
+            width: 86px;
+            height: 12px;
+            background-color: white;
+            position: absolute;
+            left: 50%;
+            margin-left: -59px;
+            bottom: -6px;
+            padding-left: 17px;
+            padding-right: 14px;
+        }
+
+        .content .active .circle ul li {
+            width: 11px;
+            height: 11px;
+            border-radius: 6px;
+            margin-right: 14px;
+            background-color: #B5C0CB;
+        }
+
+        .content .active .circle ul li.last {
+            margin-right: 0;
+        }
+
+        .content .active .circle ul li.current {
+            background-color: #2FBC71;
+        }
+        
+        .content .other {
+            padding-top: 53px;
+            padding-bottom: 57px;
+            overflow: hidden;
+        }
+
+        .content .other .news {
+            float: left;
+            width: 50%;
+            background: url("images/bynewsbg.jpg") no-repeat center top;
+            padding-top: 110px;
+            position: relative;
+        }
+
+        .content .other .news h3{
+            width: 64px;
+            line-height: 26px;
+            border: 1px solid #33B972;
+            border-radius: 5px;
+            font-size: 10px;
+            font-weight: normal;
+            text-align: center;
+            position: absolute;
+            left: 218px;
+            top: 40px;
+        }
+
+        .content .other .news h3 a {
+            display: block;
+            color: #33B972;
+            text-decoration: none;
+        }
+
+        .content .other .news ul {
+            padding: 0 20px;
+        }
+
+        .content .other .news ul li {
+            float: left;
+            width: 100%;
+            line-height: 50px;
+            font-size: 11px;
+            color: #AFBECF;
+            border-bottom: 1px solid #DBE1E7;
+        }
+
+        .content .other .news ul li a  {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #444866;
+            font-size: 12px;
+        }
+        
+        .content .other .news ul li a:hover {
+            color: #2FBC71;
+        }
+
+        .content .other .jobs {
+            float: left;
+            width: 50%;
+            background: url("images/byhrbg3.jpg") no-repeat center top;
+            padding-top: 110px;
+            position: relative;
+        }
+        
+        .content .other .jobs h1 {
+            position: absolute;
+            left: 76px;
+            top: 40px;
+        }
+
+        .content .other .jobs h3 {
+            width: 64px;
+            line-height: 26px;
+            border: 1px solid white;
+            position: absolute;
+            left: 218px;
+            top: 40px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .content .other .jobs h3 a {
+            display: block;
+            text-decoration: none;
+            font-size: 10px;
+            color: white;
+        }
+
+        .content .other .jobs .recruit {
+            padding-left: 20px;
+            padding-bottom: 27px;
+        }
+
+        .content .other .jobs .recruit h5{
+            color: #FFFFFF;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        .content .other .jobs .recruit li {
+            line-height: 37px;
+            border-bottom: 1px solid #6FDEA3;
+        }
+
+        .content .other .jobs .recruit li a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .footer {
+            background-color: #191D3A;
+            height: 91px;
+        }
+
+        .footer .leftPart {
+            float: left;
+            width: 200px;
+            line-height: 91px;
+        }
+
+        .footer .leftPart a {
+            text-decoration: none;
+            font-size: 11px;
+            color: #6C6E7E;
+        }
+
+        .footer .rightPart {
+            float: right;
+            line-height: 91px;
+            font-size: 11px;
+            color: #6C6E7E;
+        }
+
+
+        .footer .rightPart img {
+            width: 40px;
+            position: relative;
+            top: 20px;
+            margin-left: 5px;
+        }
+
+        .top {
+            width: 68px;
+            position: fixed;
+            right: 14px;
+            bottom: 75px;
+            background-color: #C7D6E5;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="inner_c">
+            <h1 class="logo"><img src="images/logo.png" alt=""></h1>
+            <div class="nav">
+                <ul>
+                    <li class="current"><a href="#">首页</a></li>
+                    <li><a href="#">博雅游戏</a></li>
+                    <li><a href="#">博雅新闻</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">客服中心</a></li>
+                    <li class="last"><a href="#">投资者关系</a></li>
+                </ul>
+            </div>
+            <div class="join">
+                <a href="#">加入我们</a>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="circle">
+            <ul>
+                <li class="current"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="last"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="inner_c">
+            <div class="active">
+                <ul>
+                    <li><p><a href="#"><img src="images/bpt.jpg" alt=""></a></p><h3>BPT宣传片</h3><p class="play"><a href="#">点击播放</a></p></li>
+                    <li><p><a href="#"><img src="images/video.jpg" alt=""></a></p><h3>博雅互动宣传视频</h3><p class="play"><a href="#">点击播放</a></p></li>
+                    <li><p><a href="#"><img src="images/gamepic3.jpg" alt=""></a></p><h3>斗地主</h3><p class="play"><a href="#">LANDLORDS</a></p></li>
+                    <li class="last"><p><a href="#"><img src="images/gamepic1.jpg" alt=""></a></p><h3>德州扑克</h3><p class="play"><a href="#">TEXAS HOLD'EM POKER</a></p></li>
+                </ul>
+                <div class="circle">
+                    <ul>
+                        <li class="current"></li>
+                        <li></li>
+                        <li></li>
+                        <li class="last"></li>
+                    </ul>
+                </div>
+                <div class="cl"></div>
+            </div>
+            <div class="other">
+                <div class="news">
+                    <h3><a href="#">MORE</a></h3>
+                    <ul>
+                        <li>9 / 28<a href="#">2015博雅国际扑克大赛（BPT）在澳门落幕</a></li>
+                        <li>8 / 26<a href="#">2015 BPT博雅国际扑克大赛重磅来袭</a></li>
+                        <li>8 / 01<a href="#">博雅互动与阿里游戏联手启动"淘宝杯首届电视棋牌大赛"</a></li>
+                        <li>7 / 21<a href="#">湖南省省长杜家毫一行参观博雅互动</a></li>
+                    </ul>
+                </div>
+                <div class="jobs">
+                    <h1><img src="images/zczp.png" alt=""></h1>
+                    <h3><a href="#">MORE</a></h3>
+                    <div class="recruit">
+                        <h5>专场招聘岗位 :</h5>
+                        <ul>
+                            <li><a href="#">PHP开发工程师</a></li>
+                            <li><a href="#">C++开发工程师</a></li>
+                            <li><a href="#">WEB前端开发工程师</a></li>
+                            <li><a href="#">大数据开发工程师</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="inner_c">
+            <div class="leftPart">
+                <a href="">网站地图</a>t
+                <a>|</a>
+                <a href="">免责声明</a>
+            </div>
+            <div class="rightPart">
+                Copyright &copy; 2004-2014博雅互动(Boyaa Interactive) 粤ICP备05062536号 增值电信业务经营许可证：粤B2-20110513
+                <img src="images/govIcon.gif" alt="">
+            </div>
+        </div>
+    </div>
+    <a href="#" class="top">TOP</a>
+</body>
+</html>

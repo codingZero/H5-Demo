@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #demo {
+            width: 1000px;
+            text-align: center;
+            font-size: 40px;
+            color: red;
+            margin: 100px auto;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var demo = document.getElementById('demo');
+            var endTime = new Date("2017/7/20 21:50:30");
+            setInterval(fun, 1000);
+            function fun() {
+                var now = new Date();
+                var nowTime = now.getTime();
+                var second = parseInt((endTime - nowTime) / 1000);
+                var d = parseInt(second / 3600 / 24);
+                var h = parseInt(second / 3600 % 24);
+                var m = parseInt(second / 60 % 60);
+                var s = parseInt(second % 60);
+                d = d > 10? d : "0" + d;
+                h = h > 10? h : "0" + h;
+                m = m > 10? m : "0" + m;
+                s = s > 10? s : "0" + s;
+                demo.innerHTML = "还剩：" + d + "天" + h + "时" + m + "分" + s + "秒";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="demo">
+
+    </div>
+</body>
+</html>

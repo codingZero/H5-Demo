@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 100px auto;
+            padding-right: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll {
+            width: 15px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #eee;
+        }
+
+        .content {
+            width: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .bar {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100px;
+            background-color: #7f7f7f;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="content" id="content">
+            这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内是内容这是容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内是内容这是容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内是内容这是容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容
+        </div>
+        <div class="scroll" id="scroll">
+            <div class="bar" id="bar"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var box = document.getElementById('box');
+    var content = document.getElementById('content');
+    var bar = document.getElementById('bar');
+    bar.style.height = box.offsetHeight / content.offsetHeight * box.offsetHeight + "px";
+
+    bar.onmousedown = function (event) {
+        var y = event.clientY - bar.offsetTop;
+        document.onmousemove = function (e) {
+            var offsetY = e.clientY - y;
+            if (offsetY < 0) offsetY = 0;
+            var maxY = box.offsetHeight - bar.offsetHeight;
+            if (offsetY > maxY) offsetY = maxY;
+            bar.style.top = offsetY + "px";
+            window.getSelection().removeAllRanges();
+
+            var percent = offsetY / maxY;
+            var contentOffset = content.offsetHeight - box.offsetHeight;
+            content.style.top = -contentOffset * percent + "px";
+            console.log(content.scrollTop);
+        }
+    }
+
+    document.onmouseup = function () {
+        document.onmousemove = null;
+    }
+</script>

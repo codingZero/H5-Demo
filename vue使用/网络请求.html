@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span:nth-of-type(1) {
+            font-family: 'Microsoft YaHei';
+        }
+
+        span:nth-of-type(2) {
+            font-family: 'SimSun';
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="item in userInfo">
+            <span>我也要投放广告</span> : <span>我也要投放广告</span>
+        </li>
+    </ul>
+</div>
+
+
+
+<script src="vue.js"></script>
+<script src="vue-resource.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            userInfo: []
+        },
+        methods: {
+            getDataList() {
+                this.$http.get('http://jsonplaceholder.typicode.com/users').then(response => {
+                    this.userInfo = response.body
+                })
+            }
+        },
+        created () {
+            this.getDataList()
+        }
+    })
+</script>
+</body>
+</html>

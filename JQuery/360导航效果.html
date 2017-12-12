@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 50px auto;
+            width: 800px;
+            height: 35px;
+            border: 1px solid #cccccc;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            width: 100px;
+            height: 100%;
+            text-align: center;
+            line-height: 35px;
+            box-sizing: border-box;
+            border-right: 1px dashed #cccccc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        li span {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -99;
+        }
+    </style>
+
+    <script src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.box li:last').css('border', 0);
+            $('.box li').append('<span></span>');
+            var array = new Array('red', 'blue', 'pink', 'yellow', 'green', 'purple', 'deeppink', 'orange');
+            $('li span').each(function (index, ele) {
+                $(this).css('background-color', array[index]);
+            });
+            $('.box li').mouseenter(function () {
+                $(this).children('span').stop().animate({top: 0}, 200);
+                $('audio').get($(this).index()).load();
+                $('audio').get($(this).index()).play();
+            }).mouseleave(function () {
+                $(this).children('span').stop().animate({top: 35}, 200);
+            });
+
+            $(window).keydown(function (e) {
+                var num = e.keyCode;
+                if (num >= 49 && num <= 56) {
+                    num -= 49;
+                    $('.box li').eq(num).trigger("mouseenter");
+                    setTimeout(function () {
+                        $('.box li').eq(num).trigger("mouseleave");
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>大萨比</li>
+            <li>大萨比</li>
+            <li>大萨比</li>
+            <li>大萨比</li>
+            <li>大萨比</li>
+            <li>大萨比</li>
+            <li>大萨比</li>
+            <li>大萨比</li>
+        </ul>
+    </div>
+    <audio src="music/1.ogg"></audio>
+    <audio src="music/2.ogg"></audio>
+    <audio src="music/3.ogg"></audio>
+    <audio src="music/4.ogg"></audio>
+    <audio src="music/5.ogg"></audio>
+    <audio src="music/6.ogg"></audio>
+    <audio src="music/7.ogg"></audio>
+    <audio src="music/8.ogg"></audio>
+</body>
+</html>

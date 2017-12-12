@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .center {
+            width: 1000px;
+            margin: auto;
+        }
+
+        .box {
+            width: 200px;
+            height: 0;
+            border-top: 100px solid red;
+            border-bottom: 100px solid green;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .box .left {
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            border: 40px solid green;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+        }
+
+        .box .right {
+            background-color: green;
+            width: 20px;
+            height: 20px;
+            border: 40px solid red;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -50px;
+        }
+
+        .box1 {
+            background-color: red;
+            width: 200px;
+            height: 80px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .box1 .triangle {
+            width: 0;
+            height: 0;
+            border: 8px solid transparent;
+            border-right: 8px solid red;
+            position: absolute;
+            top: 50%;
+            margin-top: -8px;
+            left: -16px;
+        }
+
+    </style>
+
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.showName = function() {
+                console.log("我叫" + this.name);
+            }
+        }
+
+        Person.prototype.showAge = function () {
+            console.log("今年" + this.age + "岁");
+        }
+        //对象方法可以直接在function里面定义，也可以通过下面的方式定义
+        //创建对象
+        var p1 = new Person("张三", 25);
+        var p2 = new Person("李四", 28);
+        p1.showName();
+        p1.showAge();
+        p2.showName();
+        p2.showAge();
+        Person.run = function() {
+            console.log("跑跑跑");
+        }
+
+        Person.run();
+    </script>
+</head>
+<body>
+<div class="center">
+    <div class="box">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+
+    <div class="box1">
+        <div class="triangle"></div>
+    </div>
+</div>
+</body>
+</html>

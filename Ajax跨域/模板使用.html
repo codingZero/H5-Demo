@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .watch, .phone {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+
+    <script src="jquery-1.11.1.min.js"></script>
+    <script src="template-web.js"></script>
+
+    <script id="temp" type="text/html">
+        {{if title}}
+            <h3>{{title}}</h3>
+            <ul class="watch">
+                {{each brands value i}}
+                    <li>{{i + 1}}.{{value}}</li>
+                {{/each}}
+            </ul>
+        {{/if}}
+    </script>
+
+    <script id="temp1" type="text/html">
+        <%if (title) {%>
+            <h3><%=title%></h3>
+            <ul class="phone">
+                <%for (var i = 0; i < brands.length; i++) {%>
+                    <%var name = brands[i]%>
+                    <li><%=i + 1%>.<%=name%></li>
+                <%}%>
+            </ul>
+        <%}%>
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var data = {
+                'title': '手表品牌',
+                'brands': ['百达翡丽', '劳力士', '欧米茄', '万宝龙', '帝陀', '浪琴', '天梭']
+            }
+            var html = template('temp', data);
+            $("#box").html(html);
+
+            console.log(html);
+            var data1 = {
+                'title': '手机品牌',
+                'brands': ['小米', '苹果', '三星', '华为', 'oppo', 'vivo']
+            }
+            var html1 = template('temp1', data1);
+            $("#box1").html(html1);
+        });
+
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box1"></div>
+</body>
+</html>

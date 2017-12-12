@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .box {
+            width: 600px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul {
+            width: 300%;
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        ul li{
+            float: left;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var num = 0;
+            var ul = document.getElementById('ul');
+            var timer = setInterval(autoScroll, 10)
+
+            var scroll = document.getElementById('scroll');
+            scroll.onmouseover = function () {
+                clearInterval(timer);
+            }
+            scroll.onmouseout = function () {
+                timer = setInterval(autoScroll, 10);
+            }
+
+            function autoScroll() {
+                num--;
+                if (num <= -1200) num = 0;
+                console.log(num);
+                ul.style.left = num + "px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="scroll">
+        <ul id="ul">
+            <li><img src="images/a.jpg" alt=""></li>
+            <li><img src="images/b.jpg" alt=""></li>
+            <li><img src="images/c.jpg" alt=""></li>
+            <li><img src="images/d.jpg" alt=""></li>
+            <li><img src="images/a.jpg" alt=""></li>
+            <li><img src="images/b.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

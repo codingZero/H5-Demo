@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 5px solid #eee;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -255px;
+            margin-top: -155px;
+            box-shadow:2px 2px 2px 2px #666;
+        }
+
+        .hd {
+            background-color: #7c9299;
+            color: white;
+            line-height: 25px;
+            cursor: move;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="hd" id="hd">
+            注册信息（可以拖拽）
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var box = document.getElementById('box');
+    var hd = document.getElementById('hd');
+    hd.onmousedown = function (event) {
+        var x = event.clientX - box.offsetLeft - 255;
+        var y = event.clientY - box.offsetTop - 155;
+        document.onmousemove = function (e) {
+            box.style.left = e.clientX - x + "px";
+            box.style.top = e.clientY - y + "px";
+            window.getSelection().removeAllRanges();
+        }
+    }
+    hd.onmouseup = function () {
+        document.onmousemove = null;
+    }
+</script>

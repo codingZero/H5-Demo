@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        /*window.onload = function () {
+            var login = document.getElementById('login');
+
+            login.onclick = function () {
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+                var result = document.getElementById('result');
+                var xhr = null;
+                if (window.XMLHttpRequest) {
+                    xhr = new XMLHttpRequest();
+                } else {
+                    xhr = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+                var url = "login.php?username=" + username + "&password=" + password;
+                xhr.open('get', url, true);
+
+                xhr.onreadystatechange = function () {
+                    result.innerHTML = this.responseText;
+                }
+                xhr.send(null);
+            }
+        }*/
+
+        $(function () {
+            $("#login").on('click', function () {
+//                var url = 'login.php?username=' + $("#username").val() + "&password=" + $("#password").val();
+                $.ajax({
+                    url: "login.php",
+                    type: 'post',
+                    dataType: 'text',
+                    data: {"username": $("#username").val(), "password": $("#password").val()},
+                    success: function (data) {
+                        $("#result").html(data);
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+<form>
+    <div id="result"></div>
+    用户名：<input type="text" name="username" id="username"><br>
+    密码：<input type="text" name="password" id="password"><br>
+    <input type="button" value="登录" id="login">
+</form>
+
+</body>
+</html>

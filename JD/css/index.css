@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+.banner {
+    position: relative;
+}
+
+.banner a {
+    position: absolute;
+    height: 604px;
+    width: 100%;
+    background: url(../images/banner.jpg) no-repeat top center;
+}
+
+.main {
+    position: relative;
+}
+
+.main .slider {
+    float: left;
+    width: 730px;
+    height: 454px;
+    position: relative;
+    margin: 10px 0 0 220px;
+}
+
+.main .slider img {
+    width: 100%;
+    height: 100%;
+}
+
+.main .slider ul {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    margin-left: -66px;
+}
+
+.main .slider li {
+    float: left;
+    width: 18px;
+    line-height: 18px;
+    background-color: #3e3e3e;
+    border-radius: 50%;
+    margin-right: 5px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.main .slider li.last {
+    background-color: #b61d1d;
+}
+
+.main .slider .sel {
+    position: absolute;
+    width: 30px;
+    background-color: rgba(0,0,0,.2);
+    top: 50%;
+    margin-top: -30px;
+    font: 18px/60px "SimSun";
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.main .slider .sel:hover {
+    background-color: rgba(0,0,0,.4);
+}
+
+.main .slider .left {
+    left: 0;
+}
+
+.main .slider .right {
+    right: 0;
+}
+
+.main .jdNews {
+    float: left;
+    width: 248px;
+    height: 452px;
+    margin: 10px 0 0 10px;
+    border: 1px solid #e4e4e4;
+}
+
+.main .jdNews .news {
+    border-bottom: 1px dashed #e4e4e4;
+}
+
+.main .jdNews .dt {
+    height: 43px;
+    border-bottom: 1px dotted #e4e4e4;
+    line-height: 43px;
+    padding: 0 15px;
+}
+
+.main .jdNews h3 {
+    float: left;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+}
+
+.main .jdNews .more {
+    float: right;
+}
+
+.main .news .dd {
+    padding: 7px 0;
+}
+
+.main .news li {
+    line-height: 28px;
+    height: 28px;
+    padding-left: 15px;
+}
+
+.main .news li span {
+    font-weight: bold;
+}
+
+.main .serve li {
+    float: left;
+    height: 69px;
+    width: 62px;
+    border: 1px solid #e4e4e4;
+    border-top: 0;
+    border-right: 0;
+    margin-left: -1px;
+    position: relative;
+}
+
+.main .serve li.give {
+    background: url(../images/song.png) no-repeat right top;
+}
+
+.main .serve li.free {
+    background: url(../images/mian.png) no-repeat right top;
+}
+
+.main .serve a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.main .serve i {
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 10px;
+    left: 50%;
+    margin-left: -13px;
+    background: url(../images/icon_lifeserv.png) no-repeat left 0;
+}
+
+.main .serve span {
+    width: 100%;
+    position: absolute;
+    bottom: 7px;
+    text-align: center;
+}
+
+.night {
+    margin-top: 10px;
+    position: relative;
+}
+
+.night .night-l {
+    float: left;
+    width: 210px;
+    height: 150px;
+    background: url(../images/night.jpg) no-repeat;
+}
+
+.night .night-r {
+    float: right;
+    margin-right: -4px;
+}
+
+.night .night-r li {
+    float: left;
+    width: 250px;
+    height: 164px;
+    border-right: 1px solid white;
+}
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid gray;
+            text-align: center;
+            padding: 10px;
+        }
+
+        td {
+            height: 20px;
+            background-color: #eaeaea;
+        }
+
+        th {
+            background-color: #6dbdff;
+            height: 30px;
+
+        }
+    </style>
+
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        var data = [{
+            name: "百度",
+            url: "www.baidu.com",
+            type: "最大的中文搜索网站"
+        }, {
+            name: "腾讯",
+            url: "www.qq.com",
+            type: "最流氓的互联网公司"
+        }, {
+            name: "网易",
+            url: "www.163.com",
+            type: "一个游戏很赚钱的公司"
+        }];
+
+        $(function () {
+            for (var i = 0; i < data.length; i++) {
+                var d = data[i];
+                var tr = $("<tr></tr>");
+                tr.append("<td>" + d.name + "</td>");
+                tr.append("<td>" + d.url + "</td>");
+                tr.append("<td>" + d.type + "</td>");
+                $("#tb").append(tr);
+            }
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>网址</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+
+        </tbody>
+    </table>
+</body>
+</html>

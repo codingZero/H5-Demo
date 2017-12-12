@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        .center {
+            width: 1000px;
+            margin: auto;
+        }
+
+        div.item {
+            width: 300px;
+            height: 210px;
+            float: left;
+            display: flex;
+            margin: 0 30px 30px 0;
+            background-color: white;
+        }
+
+        div.box {
+            width: 210px;
+            height: 130px;
+            padding: 20px;
+            border: 10px dotted red;
+            margin: auto;
+            background: url(images/bg.jpg) no-repeat yellow;
+            background-size: 100% 100%;
+        }
+
+        .item:nth-child(1) .box {
+            background-origin: border-box;
+        }
+
+        .item:nth-child(2) .box {
+            background-origin: padding-box;
+        }
+
+        .item:nth-child(3) .box {
+            background-origin: content-box;
+        }
+
+        .item:nth-child(4) .box {
+            background-origin: border-box;
+            background-clip: padding-box;
+        }
+
+        .item:nth-child(5) .box {
+            background-origin: border-box;
+            background-clip: content-box;
+        }
+
+        .item:nth-child(6) .box {
+            background-origin: content-box;
+            background-clip: content-box;
+        }
+
+        .item:nth-child(7) .box {
+            background-size: cover;
+            background-origin: padding-box;
+        }
+
+        .item:nth-child(8) .box {
+            background-size: contain;
+            background-origin: padding-box;
+        }
+
+        .item:nth-child(9) .box {
+            background-size: auto;
+            background-origin: padding-box;
+        }
+
+        .item:nth-child(10) {
+            width: 623px;
+            height: 417px;
+        }
+
+        .item:nth-child(10) .box {
+            padding: 90px 150px 85px 120px;
+            width: 353px;
+            height: 242px;
+            border: none;
+            background: url(images/bg1.png) left top no-repeat,
+                        url(images/bg2.png) right top no-repeat,
+                        url(images/bg3.png) right bottom no-repeat,
+                        url(images/bg4.png) left bottom no-repeat,
+                        url(images/bg5.png) center center no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div class="center">
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+    </div>
+    <div class="item">
+        <div class="box">
+            恋上那座城，是因为恋上楼梯口那辆专属于她的自行车，那是在她生日的时候，他特意为她精心挑选的，那辆粉红色的凤凰牌女式自行车是她的宝贝，车架上还带有一个别致的小框，把手上甚至镶嵌有一颗妖艳的蓝宝石——尽管是假的，却丝毫不影响蓝宝石的魅力和她的好心情。周末的时候，最好是在小雨沙沙的深秋，骑着心爱的自行车，燕子一般穿梭于这个城市的大街小巷，或去寻找垂涎欲滴的小吃、或去欣赏刚刚盛开的菊花，或去看一场心仪已久的电影，或去他的单位等他一起回家……骑在车上，她的心情总是那么美美的陶醉。
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 20px;
+        }
+
+        body {
+            background-color: #CCCCCC;
+        }
+
+        div {
+            margin: 10px auto;
+            width: 800px;
+            height: 230px;
+            background-color: #fff;
+            perspective: 500px;
+            /*transform-style: preserve-3d;*/
+        }
+
+
+        h3 {
+            margin: 0;
+            padding: 10px;
+            height: 50px;
+            box-sizing: border-box;
+            border-bottom: 2px solid #CCCCCC;
+        }
+
+        .box {
+            float: left;
+            margin: 15px;
+            width: 150px;
+            height: 150px;
+            background: url(images/test.jpg) no-repeat;
+            background-size: 150px 150px;
+            transition: transform 1s;
+            transform-origin: right;
+        }
+
+
+
+        div[class*='scale'] {
+            margin: 10px 40px;
+        }
+
+        .scaleBig:hover {
+            transform: scale(-1, 1);
+        }
+
+        .scaleSmall:hover {
+            transform: scale(0.5, 0.5);
+        }
+
+        .translate:hover {
+            transform: translate(500px, 20px);
+        }
+
+        .translateZ:hover {
+            transform: translateZ(-100px);
+        }
+
+        .skew:hover {
+            transform: skew(0deg, 30deg);
+        }
+
+
+        .rotate:hover {
+            transform: rotate(180deg);
+        }
+
+        .rotateX:hover {
+            transform: rotateX(180deg);
+        }
+
+        .rotateY:hover {
+            transform: rotateY(30deg);
+        }
+
+        .rotateZ:hover {
+            transform: rotateZ(180deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h3>缩放</h3>
+        <div class="box scaleBig"></div>
+        <div class="box scaleSmall"></div>
+    </div>
+    <div>
+        <h3>移动</h3>
+        <div class="box translate"></div>
+    </div>
+    <div>
+        <h3>z轴移动</h3>
+        <div class="box translateZ"></div>
+    </div>
+    <div>
+        <h3>倾斜</h3>
+        <div class="box skew"></div>
+
+    </div>
+    <div>
+        <h3>旋转</h3>
+        <div class="box rotate"></div>
+    </div>
+    <div>
+        <h3>x轴旋转</h3>
+        <div class="box rotateX"></div>
+    </div>
+    <div style="perspective: 200px">
+        <h3>y轴旋转</h3>
+        <div class="box rotateY"></div>
+    </div>
+    <div>
+        <h3>z轴旋转</h3>
+        <div class="box rotateZ"></div>
+    </div>
+</body>
+</html>

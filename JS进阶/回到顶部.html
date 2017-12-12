@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .content {
+            margin-left: 100px;
+        }
+
+        .toTop {
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            display: none;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var top = document.getElementById('top');
+            window.onscroll = function () {
+                if (window.pageYOffset > 100) {
+                    top.style.display = "block";
+                } else {
+                    top.style.display = "none";
+                }
+
+            }
+            var leader = 0, target = 0, timer = null;
+            top.onclick = function () {
+                leader = window.pageYOffset;
+                console.log(leader);
+                 timer = setInterval(function () {
+                    leader = leader + (target - leader) / 10;
+                    window.scrollTo(0, leader);
+                    if (leader == target) {
+                        clearInterval(timer);
+                    }
+                }, 30)
+            }
+        }
+    </script>
+
+</head>
+<body>
+<div class="toTop" id="top">
+    <img src="images/Top.jpg" alt="">
+</div>
+<div class="content">
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+    <p>这是内容，这是内容，这是内容</p>
+</div>
+</body>
+</html>
